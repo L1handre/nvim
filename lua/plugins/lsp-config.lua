@@ -1,9 +1,6 @@
 return {
 	{
 		"mason-org/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -11,18 +8,41 @@ return {
 		opts = {
 			ensure_installed = {
 				"tree-sitter-cli",
-				"basedpyright",
-				"gopls",
-				"lua-language-server",
 				"prettier",
 				"prettierd",
-				"ruff",
 				"stylua",
-				"tailwindcss-language-server",
-				"vtsls",
+				"ruff",
 			},
 			auto_update = false,
 			run_on_start = true,
 		},
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+		opts = {
+			ensure_installed = {
+				"basedpyright",
+				"gopls",
+				"lua_ls",
+				"vtsls",
+				"tailwindcss",
+			},
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			vim.lsp.config.lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = { globals = { "vim" } },
+					},
+				},
+			}
+		end,
 	},
 }
