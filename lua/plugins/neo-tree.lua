@@ -22,8 +22,7 @@ return {
 				width = 30,
 			},
 			default_component_configs = {
-				git_status = {
-				},
+				git_status = {},
 			},
 		},
 	},
