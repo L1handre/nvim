@@ -30,18 +30,18 @@ return {
 			lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = {
-				-- "location",
-				{
-					require("noice").api.status.mode.get,
-					cond = function()
-						return require("noice").api.status.mode.has()
-							and string.match(require("noice").api.status.mode.get(), "recording") ~= nil
-					end,
-				},
-				{
-					require("noice").api.status.command.get,
-					cond = require("noice").api.status.command.has,
-				},
+				"location",
+				-- {
+				-- 	require("noice").api.status.mode.get,
+				-- 	cond = function()
+				-- 		return require("noice").api.status.mode.has()
+				-- 			and string.match(require("noice").api.status.mode.get(), "recording") ~= nil
+				-- 	end,
+				-- },
+				-- {
+				-- 	require("noice").api.status.command.get,
+				-- 	cond = require("noice").api.status.command.has,
+				-- },
 			},
 		},
 	},

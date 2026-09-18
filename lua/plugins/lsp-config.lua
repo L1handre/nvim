@@ -44,5 +44,12 @@ return {
 				},
 			}
 		end,
+		keys = {
+			{
+				"<leader>rn",
+				vim.lsp.buf.rename,
+				{ desc = "LSP rename symbol" },
+			},
+		},
 	},
 }
