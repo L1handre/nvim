@@ -33,5 +33,6 @@ require("vim._core.ui2").enable({
 })
 
 vim.keymap.set("n", "<leader>w", "<C-w>")
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = "NONE" })
 vim.g.neovide_floating_shadow = false
