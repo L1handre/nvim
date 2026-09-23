@@ -14,8 +14,6 @@ vim.diagnostic.config({
 	-- },
 })
 
-vim.cmd.colorscheme("tokyonight-moon")
-
 require("vim._core.ui2").enable({
 	enable = true,
 	msg = {
@@ -45,3 +43,14 @@ vim.keymap.set("n", "K", function()
 		max_height = 20,
 	})
 end, { desc = "LSP Hover with Invisible Padding" })
+
+vim.api.nvim_create_augroup("remove_neotree_win_separator", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = "remove_neotree_win_separator",
+	callback = function()
+		local highlight = vim.api.nvim_get_hl(0, { name = "Normal" })
+		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = highlight.bg, fg = highlight.bg })
+	end,
+})
+
+vim.cmd.colorscheme("tokyonight-moon")
