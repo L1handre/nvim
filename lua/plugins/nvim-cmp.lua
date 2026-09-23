@@ -58,7 +58,10 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
-					{ name = "buffer" },
+					name = "buffer",
+				}, {
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
 				}),
 			})
 		end,
