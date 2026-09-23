@@ -1,10 +1,27 @@
+local empty_extension = {
+	sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	filetypes = { "neo-tree" },
+}
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
-		options = {
-			disabled_filetypes = { "neo-tree" },
-		},
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
@@ -43,6 +60,9 @@ return {
 				-- 	cond = require("noice").api.status.command.has,
 				-- },
 			},
+		},
+		extensions = {
+			empty_extension,
 		},
 	},
 }
