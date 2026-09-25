@@ -32,7 +32,6 @@ require("vim._core.ui2").enable({
 
 vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = "NONE" })
 vim.g.neovide_floating_shadow = false
 
 vim.keymap.set("n", "K", function()
@@ -50,6 +49,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		local highlight = vim.api.nvim_get_hl(0, { name = "Normal" })
 		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = highlight.bg, fg = highlight.bg })
+	end,
+})
+
+vim.api.nvim_create_augroup("disable_muted_text_for_diagnostic_unnecessary", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = "disable_muted_text_for_diagnostic_unnecessary",
+	callback = function()
+		vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {})
 	end,
 })
 
