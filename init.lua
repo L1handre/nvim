@@ -1,17 +1,17 @@
 require("config.lazy")
+
 vim.g.mapleader = " "
+vim.g.neovide_floating_shadow = false
 
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.fileformats = { "unix", "dos" }
 
 vim.diagnostic.config({
 	virtual_text = true,
-	-- virtual_lines = {
-	-- 	current_line = true,
-	-- },
 })
 
 require("vim._core.ui2").enable({
@@ -30,11 +30,13 @@ require("vim._core.ui2").enable({
 	},
 })
 
-vim.keymap.set("n", "<leader>w", "<C-w>")
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-vim.g.neovide_floating_shadow = false
+local map = vim.keymap.set
 
-vim.keymap.set("n", "K", function()
+map("n", "<leader>w", "<C-w>")
+map("n", "<leader>bd", "<CMD>bd!<CR>", { desc = "Kill Buffer" })
+map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+map("n", "K", function()
 	vim.lsp.buf.hover({
 		-- Top-left, top, top-right, right, bottom-right, bottom, bottom-left, left
 		border = { " ", " ", " ", " ", " ", " ", " ", " " },
@@ -52,14 +54,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.api.nvim_create_augroup("disable_muted_text_for_diagnostic_unnecessary", { clear = true })
+vim.api.nvim_create_augroup("unmute_text_for_diagnostic_unnecessary", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
-	group = "disable_muted_text_for_diagnostic_unnecessary",
+	group = "unmute_text_for_diagnostic_unnecessary",
 	callback = function()
 		vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {})
 	end,
 })
 
 vim.cmd.colorscheme("tokyonight-moon")
-vim.keymap.set("n", "<leader>bd", "<CMD>bd!<CR>", { desc = "Kill Buffer" })
-vim.opt.fileformats = { "unix", "dos" }
