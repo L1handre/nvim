@@ -5,7 +5,8 @@ return {
     delete_to_trash = true,
     keymaps = {
       ["<C-p>"] = false
-    }
+    },
+		watch_for_changes = true
   },
   dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
   lazy = false,

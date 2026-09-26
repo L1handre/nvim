@@ -24,6 +24,7 @@ return {
 			default_component_configs = {
 				git_status = {},
 			},
+			use_libuv_file_watcher = true,
 		},
 	},
 }
