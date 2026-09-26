@@ -62,3 +62,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 vim.cmd.colorscheme("tokyonight-moon")
 vim.keymap.set("n", "<leader>bd", "<CMD>bd!<CR>", { desc = "Kill Buffer" })
+vim.opt.fileformats = { "unix", "dos" }
