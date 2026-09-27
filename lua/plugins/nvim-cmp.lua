@@ -57,11 +57,15 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{
+						name = "lazydev",
+						group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+					},
+					{
+						name = "vim-dadbod-completion",
+					},
 				}, {
-					name = "buffer",
-				}, {
-					name = "lazydev",
-					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+					{ name = "buffer" },
 				}),
 			})
 		end,
