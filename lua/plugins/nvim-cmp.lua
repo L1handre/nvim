@@ -34,14 +34,13 @@ return {
 					}),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+					["<Tab>"] = cmp.mapping.select_next_item(),
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-c>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				formatting = {
 					fields = { "icon", "abbr", "menu", "kind" },
