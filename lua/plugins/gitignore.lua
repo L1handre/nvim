@@ -1,3 +1,3 @@
 return {
-  "wintermute-cell/gitignore.nvim"
+	"wintermute-cell/gitignore.nvim",
 }
