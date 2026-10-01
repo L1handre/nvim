@@ -11,6 +11,11 @@ vim.opt.tabstop = 2
 vim.opt.fileformats = { "unix", "dos" }
 vim.opt.pumheight = 10
 
+vim.g.python_indent = {
+	open_paren = 4,
+	closed_paren_align_last_line = false,
+}
+
 vim.diagnostic.config({
 	virtual_text = true,
 })

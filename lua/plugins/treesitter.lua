@@ -2,11 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	build = ":TSUpdate",
-	opts = {
-		indent = {
-			enable = true,
-		},
-	},
+	opts = {},
 	init = function()
 		require("nvim-treesitter").install({
 			"lua",
