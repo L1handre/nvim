@@ -58,14 +58,23 @@ return {
 					{ name = "luasnip" }, -- For luasnip users.
 					{
 						name = "lazydev",
-						group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+						-- group_index = 0, -- set group index to 0 to skip loading LuaLS completions
 					},
 					{
 						name = "vim-dadbod-completion",
 					},
 				}, {
-					{ name = "buffer" },
+					-- { name = "buffer" },
 				}),
+				performance = {
+					debounce = 20,
+					throttle = 10,
+					fetching_timeout = 50,
+					filtering_context_budget = 1,
+					confirm_resolve_timeout = 80,
+					max_view_entries = 10,
+					async_budget = 2,
+				},
 			})
 		end,
 	},

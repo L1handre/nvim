@@ -9,6 +9,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.fileformats = { "unix", "dos" }
+vim.opt.pumheight = 10
 
 vim.diagnostic.config({
 	virtual_text = true,
