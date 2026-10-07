@@ -28,6 +28,7 @@ return {
 						.. (term.display_name or vim.fs.basename(vim.o.shell):gsub("%.[Ee][Xx][Ee]$", ""))
 				end,
 			},
+			size = 10
 		},
 		keys = {
 			{
