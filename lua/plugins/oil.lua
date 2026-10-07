@@ -5,6 +5,7 @@ return {
 		delete_to_trash = true,
 		keymaps = {
 			["<C-p>"] = false,
+			["`"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
 		},
 		watch_for_changes = true,
 	},
