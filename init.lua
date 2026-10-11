@@ -51,14 +51,6 @@ map("n", "K", function()
 	})
 end, { desc = "LSP Hover with Invisible Padding" })
 
-vim.api.nvim_create_augroup("remove_neotree_win_separator", { clear = true })
-vim.api.nvim_create_autocmd("ColorScheme", {
-	group = "remove_neotree_win_separator",
-	callback = function()
-		local highlight = vim.api.nvim_get_hl(0, { name = "Normal" })
-		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = highlight.bg, fg = highlight.bg })
-	end,
-})
 
 vim.api.nvim_create_augroup("unmute_text_for_diagnostic_unnecessary", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {

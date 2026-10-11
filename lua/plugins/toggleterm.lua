@@ -8,11 +8,36 @@ local function create_terminal(cmd, name)
 	return terminal
 end
 
+local function apply_term_hl()
+	local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+	local sb = vim.api.nvim_get_hl(0, { name = "NormalSB", link = false })
+	vim.api.nvim_set_hl(0, "TermNormal", {
+		fg = normal.fg,
+		bg = sb.bg or normal.bg,
+	})
+end
+
 return {
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
+		config = function(_, opts)
+			apply_term_hl()
+			vim.api.nvim_create_autocmd("ColorScheme", { callback = apply_term_hl })
+			require("toggleterm").setup(opts)
+		end,
 		opts = {
+			shade_terminals = false,
+			direction = "horizontal",
+
+			highlights = {
+				Normal = {
+					link = "TermNormal",
+				},
+				NormalNC = {
+					link = "TermNormal",
+				},
+			},
 			open_mapping = [[<C-\>]],
 			on_open = function(term)
 				if term.direction == "vertical" then
@@ -28,7 +53,7 @@ return {
 						.. (term.display_name or vim.fs.basename(vim.o.shell):gsub("%.[Ee][Xx][Ee]$", ""))
 				end,
 			},
-			size = 10
+			size = 10,
 		},
 		keys = {
 			{
