@@ -4,6 +4,7 @@ require("config.lazy")
 
 vim.g.mapleader = " "
 vim.g.neovide_floating_shadow = false
+vim.g.neovide_cursor_vfx_mode = "wireframe"
 
 vim.opt.number = true
 vim.opt.cursorline = true
