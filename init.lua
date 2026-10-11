@@ -1,3 +1,5 @@
+vim.opt.laststatus = 3
+
 require("config.lazy")
 
 vim.g.mapleader = " "
